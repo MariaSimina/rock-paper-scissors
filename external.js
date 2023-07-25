@@ -10,7 +10,7 @@ function getComputerChoice () {
 
 function playRound (playerSelection, computerSelection) {
     
-    let selection = playerSelection.toLowerCase();
+    const selection = playerSelection.toLowerCase();
     playerSelection = selection.charAt(0).toUpperCase() + selection.substring(1);
 
     if (playerSelection === computerSelection) {
@@ -43,13 +43,20 @@ function playRound (playerSelection, computerSelection) {
 
 }
 
-function game (playRound) {
+function game () {
     let computerCount = 0;
     let playerCount = 0;
     
     for (let i = 0; i < 5; i++) {
-        let computerSelection = getComputerChoice();
-        let play = playRound(playerSelection, computerSelection);
+        const computerSelection = getComputerChoice();
+        const playerSelection = prompt("Chose one: Rock, Paper, or Scissors");
+        if (playerSelection === null) {
+            return console.log("You have canceled the game. If you want to play, please restart the page.");
+        } else if (playerSelection === "") {
+            return console.log("You have entered un invalid option. Please restart the game.");
+        }
+
+        const play = playRound(playerSelection, computerSelection);
 
         if (play === "Computer wins!") {
             computerCount++;
@@ -63,11 +70,12 @@ function game (playRound) {
     }
 
     if (computerCount === playerCount) {
-        return "Final result: It's a tie!";
+        return console.log("Final result: It's a tie!");
     } else if (computerCount > playerCount) {
-        return "Final result: Computer wins!";
+        return console.log("Final result: Computer wins!");
     } else if (playerCount > computerCount) {
-        return "Final result: You win!";
+        return console.log("Final result: You win!");
     }
 }
 
+game();
