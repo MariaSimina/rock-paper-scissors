@@ -9,35 +9,32 @@ function getComputerChoice () {
 }
 
 function playRound (playerSelection, computerSelection) {
-    
-    const selection = playerSelection.toLowerCase();
-    playerSelection = selection.charAt(0).toUpperCase() + selection.substring(1);
 
     if (playerSelection === computerSelection) {
-        return "It's a tie";
+        return "tie";
     }
 
     if (playerSelection === "Rock") {
         if (computerSelection === "Paper") {
-            return "Computer wins!";
+            return "computer";
         } else if (computerSelection === "Scissors") {
-            return "You win!";
+            return "player";
         }
     }
 
     if (playerSelection === "Paper") {
         if (computerSelection === "Rock") {
-            return "You win!";
+            return "player";
         } else if (computerSelection === "Scissors") {
-            return "Computer wins!";
+            return "computer";
         }
     }
 
     if (playerSelection === "Scissors") {
         if (computerSelection === "Rock") {
-            return "Computer wins!";
+            return "computer";
         } else if (computerSelection === "Paper") {
-            return "You win!";
+            return "player";
         }
     }
 
@@ -51,22 +48,20 @@ function game () {
     let paper = document.querySelector('#paper');
     let scissors = document.querySelector('#scissors');
     let result = document.querySelector('#result');
-    let finalResult = document.querySelector('#finalResult');
+    let finalResults = document.querySelector('#finalResult');
     let score = document.querySelector('#score');
 
     rock.addEventListener('click', () => {
-        const computerSelection = getComputerChoice();
-        const playerSelection = rock.innerText;
-        
-        const play = playRound(playerSelection, computerSelection);
-        if (play === "Computer wins!") {
+        let play = playRound("Rock", getComputerChoice());
+
+        if (play === "compute") {
+            result.innerText = "Computer wins this round";
             computerCount++;
-            result.innerText = "Computer wins this game";
-        } else if (play === "You win!") {
+        } else if (play === "player") {
+            result.innerText = "You win this round";
             playerCount++;
-            result.innerText = "You win this game";
         } else {
-            result.innerText = "This game is a tie";
+            result.innerText = "It's a tie";
         }
 
         score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
@@ -79,18 +74,17 @@ function game () {
     });
 
     paper.addEventListener('click', () => {
-        const computerSelection = getComputerChoice();
-        const playerSelection = paper.innerText;
 
-        const play = playRound(playerSelection, computerSelection);
-        if (play === "Computer wins!") {
+        let play = playRound("Rock", getComputerChoice());
+
+        if (play === "computer") {
+            result.innerText = "Computer wins this round";
             computerCount++;
-            result.innerText = "Computer wins this game";
-        } else if (play === "You win!") {
+        } else if (play === "player") {
+            result.innerText = "You win this round";
             playerCount++;
-            result.innerText = "You win this game";
         } else {
-            result.innerText = "This game is a tie";
+            result.innerText = "It's a tie";
         }
 
         score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
@@ -99,22 +93,21 @@ function game () {
             finalResult.innerText = "Computer wins!";
         } else if (playerCount === 5) {
             finalResult.innerText = "You win!";
-        }
+        } 
     });
 
     scissors.addEventListener('click', () => {
-        const computerSelection = getComputerChoice();
-        const playerSelection = scissors.innerText;
 
-        const play = playRound(playerSelection, computerSelection);
-        if (play === "Computer wins!") {
+        let play = playRound("Rock", getComputerChoice());
+
+        if (play === "computer") {
+            result.innerText = "Computer wins this round";
             computerCount++;
-            result.innerText = "Computer wins this game";
-        } else if (play === "You win!") {
-            playerCount++;
-            result.innerText = "You win this game";
+        } else if (play === "player") {
+            result.innerText = "You win this round";
         } else {
-            result.innerText = "This game is a tie";
+            result.innerText = "It's a tie";
+            playerCount++;
         }
 
         score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
