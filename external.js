@@ -47,7 +47,7 @@ function game () {
     let computerCount = 0;
     let playerCount = 0;
     
-    for (let i = 0; i < 5; i++) {
+    /*for (let i = 0; i < 5; i++) {
         const computerSelection = getComputerChoice();
         const playerSelection = prompt("Chose one: Rock, Paper, or Scissors");
         if (playerSelection === null) {
@@ -75,7 +75,61 @@ function game () {
         return console.log("Final result: Computer wins!");
     } else if (playerCount > computerCount) {
         return console.log("Final result: You win!");
-    }
+    }*/
+
+    let rock = document.querySelector('#rock');
+    let paper = document.querySelector('#paper');
+    let scissors = document.querySelector('#scissors');
+    let result = document.querySelector('#result');
+
+    rock.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const playerSelection = rock.innerText;
+        
+        const play = playRound(playerSelection, computerSelection);
+        if (play === "Computer wins!") {
+            computerCount++;
+            console.log ("Computer wins this game");
+        } else if (play === "You win!") {
+            playerCount++;
+            console.log("You win this game");
+        } else {
+            console.log("This game is a tie");
+        }
+    });
+
+    paper.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const playerSelection = paper.innerText;
+
+        const play = playRound(playerSelection, computerSelection);
+        if (play === "Computer wins!") {
+            computerCount++;
+            console.log ("Computer wins this game");
+        } else if (play === "You win!") {
+            playerCount++;
+            console.log("You win this game");
+        } else {
+            console.log("This game is a tie");
+        }
+    });
+
+    scissors.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const playerSelection = scissors.innerText;
+
+        const play = playRound(playerSelection, computerSelection);
+        if (play === "Computer wins!") {
+            computerCount++;
+            console.log ("Computer wins this game");
+        } else if (play === "You win!") {
+            playerCount++;
+            console.log("You win this game");
+        } else {
+            console.log("This game is a tie");
+        }
+    });
+
 }
 
 game();
