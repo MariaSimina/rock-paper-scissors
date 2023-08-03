@@ -52,6 +52,7 @@ function game () {
     let scissors = document.querySelector('#scissors');
     let result = document.querySelector('#result');
     let finalResult = document.querySelector('#finalResult');
+    let score = document.querySelector('#score');
 
     rock.addEventListener('click', () => {
         const computerSelection = getComputerChoice();
@@ -68,6 +69,8 @@ function game () {
             result.innerText = "This game is a tie";
         }
 
+        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
+
         if (computerCount === 5) {
             finalResult.innerText = "Computer wins!";
         } else if (playerCount === 5) {
@@ -82,7 +85,6 @@ function game () {
         const play = playRound(playerSelection, computerSelection);
         if (play === "Computer wins!") {
             computerCount++;
-            console.log(`Player paper computer wins ` + computerCount);
             result.innerText = "Computer wins this game";
         } else if (play === "You win!") {
             playerCount++;
@@ -90,6 +92,8 @@ function game () {
         } else {
             result.innerText = "This game is a tie";
         }
+
+        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
 
         if (computerCount === 5) {
             finalResult.innerText = "Computer wins!";
@@ -112,6 +116,8 @@ function game () {
         } else {
             result.innerText = "This game is a tie";
         }
+
+        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
 
         if (computerCount === 5) {
             finalResult.innerText = "Computer wins!";
