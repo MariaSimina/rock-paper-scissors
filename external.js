@@ -46,41 +46,12 @@ function playRound (playerSelection, computerSelection) {
 function game () {
     let computerCount = 0;
     let playerCount = 0;
-    
-    /*for (let i = 0; i < 5; i++) {
-        const computerSelection = getComputerChoice();
-        const playerSelection = prompt("Chose one: Rock, Paper, or Scissors");
-        if (playerSelection === null) {
-            return console.log("You have canceled the game. If you want to play, please restart the page.");
-        } else if (playerSelection === "") {
-            return console.log("You have entered un invalid option. Please restart the game.");
-        }
-
-        const play = playRound(playerSelection, computerSelection);
-
-        if (play === "Computer wins!") {
-            computerCount++;
-            console.log ("Computer wins this game");
-        } else if (play === "You win!") {
-            playerCount++;
-            console.log("You win this game");
-        } else {
-            console.log("This game is a tie");
-        }
-    }
-
-    if (computerCount === playerCount) {
-        return console.log("Final result: It's a tie!");
-    } else if (computerCount > playerCount) {
-        return console.log("Final result: Computer wins!");
-    } else if (playerCount > computerCount) {
-        return console.log("Final result: You win!");
-    }*/
 
     let rock = document.querySelector('#rock');
     let paper = document.querySelector('#paper');
     let scissors = document.querySelector('#scissors');
     let result = document.querySelector('#result');
+    let finalResult = document.querySelector('#finalResult');
 
     rock.addEventListener('click', () => {
         const computerSelection = getComputerChoice();
@@ -96,6 +67,12 @@ function game () {
         } else {
             result.innerText = "This game is a tie";
         }
+
+        if (computerCount === 5) {
+            finalResult.innerText = "Computer wins!";
+        } else if (playerCount === 5) {
+            finalResult.innerText = "You win!";
+        }
     });
 
     paper.addEventListener('click', () => {
@@ -105,12 +82,19 @@ function game () {
         const play = playRound(playerSelection, computerSelection);
         if (play === "Computer wins!") {
             computerCount++;
+            console.log(`Player paper computer wins ` + computerCount);
             result.innerText = "Computer wins this game";
         } else if (play === "You win!") {
             playerCount++;
             result.innerText = "You win this game";
         } else {
             result.innerText = "This game is a tie";
+        }
+
+        if (computerCount === 5) {
+            finalResult.innerText = "Computer wins!";
+        } else if (playerCount === 5) {
+            finalResult.innerText = "You win!";
         }
     });
 
@@ -127,6 +111,12 @@ function game () {
             result.innerText = "You win this game";
         } else {
             result.innerText = "This game is a tie";
+        }
+
+        if (computerCount === 5) {
+            finalResult.innerText = "Computer wins!";
+        } else if (playerCount === 5) {
+            finalResult.innerText = "You win!";
         }
     });
 
