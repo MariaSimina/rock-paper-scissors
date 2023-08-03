@@ -64,13 +64,17 @@ function game () {
             result.innerText = "It's a tie";
         }
 
-        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
-
         if (computerCount === 5) {
+            computerCount = 0;
+            playerCount = 0;
             finalResult.innerText = "Computer wins!";
         } else if (playerCount === 5) {
             finalResult.innerText = "You win!";
+            computerCount = 0;
+            playerCount = 0;
         }
+
+        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
     });
 
     paper.addEventListener('click', () => {
@@ -87,13 +91,17 @@ function game () {
             result.innerText = "It's a tie";
         }
 
-        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
-
         if (computerCount === 5) {
+            computerCount = 0;
+            playerCount = 0;
             finalResult.innerText = "Computer wins!";
         } else if (playerCount === 5) {
+            computerCount = 0;
+            playerCount = 0;
             finalResult.innerText = "You win!";
-        } 
+        }
+
+        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
     });
 
     scissors.addEventListener('click', () => {
@@ -110,13 +118,17 @@ function game () {
             playerCount++;
         }
 
-        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
-
         if (computerCount === 5) {
+            computerCount = 0;
+            playerCount = 0;
             finalResult.innerText = "Computer wins!";
         } else if (playerCount === 5) {
+            computerCount = 0;
+            playerCount = 0;
             finalResult.innerText = "You win!";
         }
+
+        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
     });
 
 }
