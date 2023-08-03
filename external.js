@@ -43,16 +43,46 @@ function playRound (playerSelection, computerSelection) {
 function game () {
     let computerCount = 0;
     let playerCount = 0;
+    let player;
 
     let rock = document.querySelector('#rock');
     let paper = document.querySelector('#paper');
     let scissors = document.querySelector('#scissors');
     let result = document.querySelector('#result');
-    let finalResults = document.querySelector('#finalResult');
+    let finalResult = document.querySelector('#finalResult');
     let score = document.querySelector('#score');
 
     rock.addEventListener('click', () => {
-        let play = playRound("Rock", getComputerChoice());
+         player = "Rock";
+
+        /*let play = playRound(player, getComputerChoice());
+
+        if (play === "compute") {
+            result.innerText = "Computer wins this round";
+            computerCount++;
+        } else if (play === "player") {
+            result.innerText = "You win this round";
+            playerCount++;
+        } else {
+            result.innerText = "It's a tie";
+        }
+
+        if (computerCount === 5) {
+            computerCount = 0;
+            playerCount = 0;
+            finalResult.innerText = "Computer wins!";
+        } else if (playerCount === 5) {
+            finalResult.innerText = "You win!";
+            computerCount = 0;
+            playerCount = 0;
+        }
+
+        score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;*/
+    });
+
+    console.log(player);
+
+    let play = playRound(player, getComputerChoice());
 
         if (play === "compute") {
             result.innerText = "Computer wins this round";
@@ -75,7 +105,6 @@ function game () {
         }
 
         score.innerText = "Computer score: " + computerCount + "    Player score: " + playerCount;
-    });
 
     paper.addEventListener('click', () => {
 
