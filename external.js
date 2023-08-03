@@ -89,12 +89,12 @@ function game () {
         const play = playRound(playerSelection, computerSelection);
         if (play === "Computer wins!") {
             computerCount++;
-            console.log ("Computer wins this game");
+            result.innerText = "Computer wins this game";
         } else if (play === "You win!") {
             playerCount++;
-            console.log("You win this game");
+            result.innerText = "You win this game";
         } else {
-            console.log("This game is a tie");
+            result.innerText = "This game is a tie";
         }
     });
 
@@ -105,12 +105,12 @@ function game () {
         const play = playRound(playerSelection, computerSelection);
         if (play === "Computer wins!") {
             computerCount++;
-            console.log ("Computer wins this game");
+            result.innerText = "Computer wins this game";
         } else if (play === "You win!") {
             playerCount++;
-            console.log("You win this game");
+            result.innerText = "You win this game";
         } else {
-            console.log("This game is a tie");
+            result.innerText = "This game is a tie";
         }
     });
 
@@ -121,12 +121,12 @@ function game () {
         const play = playRound(playerSelection, computerSelection);
         if (play === "Computer wins!") {
             computerCount++;
-            console.log ("Computer wins this game");
+            result.innerText = "Computer wins this game";
         } else if (play === "You win!") {
             playerCount++;
-            console.log("You win this game");
+            result.innerText = "You win this game";
         } else {
-            console.log("This game is a tie");
+            result.innerText = "This game is a tie";
         }
     });
 
