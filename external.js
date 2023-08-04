@@ -1,3 +1,10 @@
+let computerCount = 0;
+let playerCount = 0;
+
+finalResult = document.querySelector('#finalResult');
+result = document.querySelector('#result');
+score = document.querySelector('#score');
+
 function getComputerChoice () {
     const choicesArray = ["Rock", "Paper", "Scissors"];
 
@@ -40,9 +47,10 @@ function playRound (playerSelection, computerSelection) {
 
 }
 
-function keepScore (computerCount, playerCount) {
-    let computerCount = 0;
-    let playerCount = 0;
+function keepScore () {
+    if ((computerCount === 1) || (playerCount === 1) || (computerCount === 0)) {
+        finalResult.innerText = "";
+    }
 
     if (computerCount === 5) {
         computerCount = 0;
@@ -78,6 +86,7 @@ function game () {
                 result.innerText = "It's a tie";
             }
 
+            keepScore();
         })
     });
 }
