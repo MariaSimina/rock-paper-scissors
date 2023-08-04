@@ -1,9 +1,12 @@
 let computerCount = 0;
 let playerCount = 0;
 
-finalResult = document.querySelector('#finalResult');
-result = document.querySelector('#result');
-score = document.querySelector('#score');
+
+const finalResult = document.querySelector('#finalResult');
+const result = document.querySelector('#result');
+const score = document.querySelector('#score');
+const list = document.querySelector('#choices');
+
 
 function getComputerChoice () {
     const choicesArray = ["Rock", "Paper", "Scissors"];
@@ -16,6 +19,10 @@ function getComputerChoice () {
 }
 
 function playRound (playerSelection, computerSelection) {
+
+    let listElement = document.createElement('li');
+    listElement.innerText = `Computer chose ${computerSelection} and you chose ${playerSelection}`;
+    list.appendChild(listElement);
 
     if (playerSelection === computerSelection) {
         return "tie";
@@ -72,6 +79,10 @@ function game () {
 
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
+
+            while(list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
 
             playerChoice = button.innerText;
             let play = playRound(playerChoice, getComputerChoice());
